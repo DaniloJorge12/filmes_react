@@ -1,21 +1,8 @@
 import React, { useState } from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    FlatList,
-    Image,
-    TouchableOpacity,
-    SafeAreaView,
-    StatusBar,
-    Alert,
-} from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity, StatusBar, Alert } from 'react-native';
 import { Provider as PaperProvider, Searchbar } from 'react-native-paper';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons'; // Ícones do Expo
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
-// =====================================================================
-// 📁 MÓDULO 1: DADOS (No futuro, mova para src/data/mockData.js)
-// =====================================================================
 const CATEGORIAS = ['Most Wanted', 'Best Rated', 'Least Liked', 'Chuck Norris', 'Liked'];
 
 const FILMES_DADOS = [
@@ -25,7 +12,7 @@ const FILMES_DADOS = [
         autor: 'Tim Brown',
         preco: 'Rs. 780',
         tags: ['Design', 'User Interface'],
-        imagem: 'https://images.unsplash.com/photo-1618519764620-7403abdbdf9c?q=80&w=200&auto=format&fit=crop', // Imagem provisória
+        imagem: 'https://images.unsplash.com/photo-1618519764620-7403abdbdf9c?q=80&w=200&auto=format&fit=crop',
     },
     {
         id: '2',
@@ -33,7 +20,7 @@ const FILMES_DADOS = [
         autor: 'Paul Dolan, Daniel Kahneman',
         preco: 'Rs. 780',
         tags: ['Design', 'User Interface'],
-        imagem: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=200&auto=format&fit=crop', // Imagem provisória
+        imagem: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=200&auto=format&fit=crop',
     },
     {
         id: '3',
@@ -41,7 +28,7 @@ const FILMES_DADOS = [
         autor: 'Ling, Daniel',
         preco: 'Rs. 780',
         tags: ['Design', 'User Interface'],
-        imagem: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=200&auto=format&fit=crop', // Imagem provisória
+        imagem: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=200&auto=format&fit=crop',
     },
     {
         id: '4',
@@ -49,15 +36,11 @@ const FILMES_DADOS = [
         autor: 'Homero',
         preco: 'Rs. 500',
         tags: ['Clássico', 'História'],
-        imagem: 'https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=200&auto=format&fit=crop', // Imagem provisória
+        imagem: 'https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=200&auto=format&fit=crop',
     },
 ];
 
-// =====================================================================
-// 📁 MÓDULO 2: COMPONENTES (No futuro, mova para src/components/CardFilme.js)
-// =====================================================================
 const CardFilme = ({ item }) => {
-    // Interação obrigatória da atividade
     const handlePress = () => {
         Alert.alert('Detalhes', `Você clicou em: ${item.titulo}`);
     };
@@ -85,24 +68,18 @@ const CardFilme = ({ item }) => {
     );
 };
 
-// =====================================================================
-// 📁 MÓDULO 3: TELA PRINCIPAL (App.js)
-// =====================================================================
 export default function App() {
     const [searchQuery, setSearchQuery] = useState('');
 
     return (
-        <PaperProvider>
-            <SafeAreaView style={styles.container}>
+        <PaperProvider >
                 <StatusBar barStyle="light-content" backgroundColor="#262A4E" />
 
-                {/* Header Baseado na Imagem */}
                 <View style={styles.header}>
                     <Text style={styles.logoText}>R E A C T</Text>
                     <Text style={styles.logoSubText}>MOVIE</Text>
                 </View>
 
-                {/* Uso da Biblioteca UI/UX (React Native Paper) - Ponto Extra */}
                 <View style={styles.searchContainer}>
                     <Searchbar
                         placeholder="Search..."
@@ -115,7 +92,6 @@ export default function App() {
                     />
                 </View>
 
-                {/* Lista Horizontal de Categorias (FlatList 1) */}
                 <View style={styles.categoriasWrapper}>
                     <FlatList
                         data={CATEGORIAS}
@@ -131,10 +107,8 @@ export default function App() {
                     />
                 </View>
 
-                {/* Linha Divisória */}
                 <View style={styles.divider} />
 
-                {/* Lista Vertical Principal (FlatList 2 - Obrigatória) */}
                 <FlatList
                     data={FILMES_DADOS}
                     keyExtractor={(item) => item.id}
@@ -143,7 +117,7 @@ export default function App() {
                     showsVerticalScrollIndicator={false}
                 />
 
-                {/* Bottom Navigation (Barra Inferior) */}
+                {}
                 <View style={styles.bottomNav}>
                     <TouchableOpacity>
                         <Ionicons name="grid" size={24} color="#8A8CB2" />
@@ -158,18 +132,14 @@ export default function App() {
                         <MaterialIcons name="menu" size={28} color="#4A528A" />
                     </TouchableOpacity>
                 </View>
-            </SafeAreaView>
         </PaperProvider>
     );
 }
 
-// =====================================================================
-// 🎨 MÓDULO 4: ESTILIZAÇÃO OBRIGATÓRIA (StyleSheet)
-// =====================================================================
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#262A4E', // Cor de fundo azul escuro da imagem
+        backgroundColor: '#262A4E',
     },
     header: {
         flexDirection: 'row',
@@ -234,7 +204,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingBottom: 20,
     },
-    // Estilos do Card
     cardContainer: {
         flexDirection: 'row',
         marginBottom: 20,
@@ -244,7 +213,7 @@ const styles = StyleSheet.create({
         width: 90,
         height: 130,
         borderRadius: 8,
-        backgroundColor: '#3D437A', // Placeholder color
+        backgroundColor: '#3D437A',
     },
     infoContainer: {
         flex: 1,
@@ -284,7 +253,6 @@ const styles = StyleSheet.create({
         color: '#8A8CB2',
         fontSize: 10,
     },
-    // Bottom Navigation
     bottomNav: {
         flexDirection: 'row',
         justifyContent: 'space-around',
