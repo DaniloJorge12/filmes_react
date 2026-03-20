@@ -8,35 +8,27 @@ const CATEGORIAS = ['Most Wanted', 'Best Rated', 'Least Liked', 'Chuck Norris', 
 const FILMES_DADOS = [
     {
         id: '1',
-        titulo: 'Change by design',
-        autor: 'Tim Brown',
+        titulo: 'A Empregada',
+        autor: 'Freida McFadden',
         preco: 'Rs. 780',
         tags: ['Design', 'User Interface'],
-        imagem: 'https://images.unsplash.com/photo-1618519764620-7403abdbdf9c?q=80&w=200&auto=format&fit=crop',
+        imagem: 'https://m.media-amazon.com/images/I/81qjGN2mqPL._UF1000,1000_QL80_.jpg',
     },
     {
         id: '2',
-        titulo: 'Happiness by Design: Change What You Do...',
-        autor: 'Paul Dolan, Daniel Kahneman',
+        titulo: 'Grey´s Anatomy',
+        autor: 'HULU',
         preco: 'Rs. 780',
         tags: ['Design', 'User Interface'],
-        imagem: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=200&auto=format&fit=crop',
+        imagem: 'https://m.media-amazon.com/images/M/MV5BYTVjNWVhYTctMGJkMS00NWFjLWE2N2QtNmQ1Y2FhZDFkNzUwXkEyXkFqcGc@._V1_.jpg',
     },
     {
         id: '3',
-        titulo: 'Complete design thinking guide',
-        autor: 'Ling, Daniel',
+        titulo: 'Magic Mickey - The Movie',
+        autor: 'Disney',
         preco: 'Rs. 780',
         tags: ['Design', 'User Interface'],
-        imagem: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=200&auto=format&fit=crop',
-    },
-    {
-        id: '4',
-        titulo: 'A Odisseia (Exemplo Adicional)',
-        autor: 'Homero',
-        preco: 'Rs. 500',
-        tags: ['Clássico', 'História'],
-        imagem: 'https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=200&auto=format&fit=crop',
+        imagem: 'https://p2.trrsf.com/image/fget/cf/940/0/images.terra.com/2022/09/15/1885838941-mickey-a-historia-de-um-camundongo-poster-disney-plus.jpg',
     },
 ];
 
@@ -72,7 +64,8 @@ export default function App() {
     const [searchQuery, setSearchQuery] = useState('');
 
     return (
-        <PaperProvider >
+        <PaperProvider>
+            <View style={styles.container}>
                 <StatusBar barStyle="light-content" backgroundColor="#262A4E" />
 
                 <View style={styles.header}>
@@ -82,7 +75,7 @@ export default function App() {
 
                 <View style={styles.searchContainer}>
                     <Searchbar
-                        placeholder="Search..."
+                        placeholder="Pesquisar..."
                         onChangeText={setSearchQuery}
                         value={searchQuery}
                         style={styles.searchBar}
@@ -117,7 +110,6 @@ export default function App() {
                     showsVerticalScrollIndicator={false}
                 />
 
-                {}
                 <View style={styles.bottomNav}>
                     <TouchableOpacity>
                         <Ionicons name="grid" size={24} color="#8A8CB2" />
@@ -132,6 +124,7 @@ export default function App() {
                         <MaterialIcons name="menu" size={28} color="#4A528A" />
                     </TouchableOpacity>
                 </View>
+            </View>
         </PaperProvider>
     );
 }
